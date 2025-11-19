@@ -135,13 +135,13 @@ const Footer = () => {
 
         <div className="mb-12 rounded-3xl overflow-hidden shadow-xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1976545725937!2d-46.65844268502207!3d-23.561414984682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sS%C3%A3o%20Paulo%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61462.35779992064!2d-48.99463543646027!3d-16.328540958553157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef6bd58d83801%3A0x6e380e0f9a97e77!2sAn%C3%A1polis%2C%20GO!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
             width="100%"
             height="300"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localização Dra. Ana Flavia"
+            title="Localização Dra. Ana Flavia - Anápolis"
             className="border-0"
           ></iframe>
         </div>
