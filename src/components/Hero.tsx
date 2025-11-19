@@ -1,0 +1,157 @@
+import { useState } from "react";
+import { toast } from "sonner";
+
+const Hero = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    date: "",
+    time: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.phone || !formData.date || !formData.time) {
+      toast.error("Por favor, preencha todos os campos!");
+      return;
+    }
+
+    toast.success("Agendamento realizado com sucesso! Entraremos em contato em breve.");
+    setFormData({ name: "", email: "", phone: "", date: "", time: "" });
+  };
+
+  return (
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-20 bg-cover bg-center"
+      style={{
+        backgroundImage: `url('https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1920&h=1080&fit=crop')`,
+      }}
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-transparent"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                Transforme Sua Beleza com Tratamentos Exclusivos
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Descubra o poder da estética profissional com tratamentos personalizados que realçam sua beleza natural e promovem bem-estar completo.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-6">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                  <i className="ri-award-line text-primary text-xl"></i>
+                </div>
+                <span className="text-foreground font-medium">+10 anos de experiência</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                  <i className="ri-shield-check-line text-primary text-xl"></i>
+                </div>
+                <span className="text-foreground font-medium">100% seguro</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+                  <i className="ri-user-heart-line text-primary text-xl"></i>
+                </div>
+                <span className="text-foreground font-medium">Atendimento personalizado</span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => {
+                const element = document.getElementById("appointment-form");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+            >
+              Agendar Agora
+            </button>
+          </div>
+
+          <div id="appointment-form" className="bg-card backdrop-blur-sm rounded-3xl shadow-2xl p-8 lg:p-10 border border-border">
+            <h3 className="text-2xl font-bold text-card-foreground mb-6">Agende Sua Consulta</h3>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="block text-sm font-medium text-card-foreground mb-2">
+                  Nome Completo
+                </label>
+                <input
+                  required
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  placeholder="Seu nome"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-card-foreground mb-2">E-mail</label>
+                <input
+                  required
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  placeholder="seu@email.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-card-foreground mb-2">Telefone</label>
+                <input
+                  required
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  placeholder="(00) 00000-0000"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-card-foreground mb-2">Data</label>
+                  <input
+                    required
+                    type="date"
+                    value={formData.date}
+                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-card-foreground mb-2">Horário</label>
+                  <input
+                    required
+                    type="time"
+                    value={formData.time}
+                    onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-medium hover:opacity-90 transition-all shadow-md hover:shadow-lg"
+              >
+                Confirmar Agendamento
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
