@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import heroBackground from "@/assets/clinic-hero-bg.jpg";
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,14 @@ const Hero = () => {
       return;
     }
 
-    toast.success("Agendamento realizado com sucesso! Entraremos em contato em breve.");
+    // Formatar a mensagem para WhatsApp
+    const message = `*Novo Agendamento - Dra. Ana Flavia*%0A%0A*Nome:* ${formData.name}%0A*Email:* ${formData.email}%0A*Telefone:* ${formData.phone}%0A*Data:* ${formData.date}%0A*Horário:* ${formData.time}`;
+    
+    // Abrir WhatsApp
+    const whatsappUrl = `https://wa.me/5562945802200?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+    
+    toast.success("Agendamento enviado! Você será redirecionado para o WhatsApp.");
     setFormData({ name: "", email: "", phone: "", date: "", time: "" });
   };
 
@@ -27,7 +35,7 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-20 bg-cover bg-center"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1920&h=1080&fit=crop')`,
+        backgroundImage: `url('${heroBackground}')`,
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-transparent"></div>

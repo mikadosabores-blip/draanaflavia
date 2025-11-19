@@ -1,3 +1,5 @@
+import draAnaFlaviaImage from "@/assets/dra-ana-flavia.jpg";
+
 const About = () => {
   const stats = [
     { value: "10+", label: "Anos de experiência" },
@@ -18,32 +20,32 @@ const About = () => {
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1200&h=800&fit=crop"
-                alt="Clínica BelleVie"
+                src={draAnaFlaviaImage}
+                alt="Dra. Ana Flavia"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/20 rounded-3xl -z-10"></div>
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-3xl -z-10"></div>
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-accent/30 rounded-3xl -z-10"></div>
           </div>
 
           <div className="space-y-6">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Sobre Nós</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">Sobre a Dra. Ana Flavia</h2>
               <div className="w-24 h-1 bg-primary rounded-full mb-6"></div>
             </div>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
-              A <strong className="text-foreground">BelleVie</strong> nasceu do sonho de criar um
-              espaço onde beleza, bem-estar e autoestima se encontram. Com mais de 10 anos de
-              experiência, nos dedicamos a oferecer tratamentos estéticos de excelência que
-              transformam vidas.
+              A <strong className="text-foreground">Dra. Ana Flavia</strong> é uma profissional dedicada e apaixonada por estética e bem-estar. 
+              Com mais de 10 anos de experiência, especializa-se em tratamentos estéticos personalizados que realçam 
+              a beleza natural de cada cliente e promovem autoestima e confiança.
             </p>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Nossa missão é proporcionar uma experiência única e personalizada, combinando técnicas
-              modernas, produtos premium e uma equipe altamente capacitada. Acreditamos que cada
-              pessoa merece se sentir confiante e radiante em sua própria pele.
+              Sua filosofia de trabalho combina técnicas modernas e avançadas com produtos de alta qualidade premium, 
+              oferecendo resultados visíveis e duradouros. A Dra. Ana Flavia acredita que cada pessoa é única e merece 
+              um atendimento personalizado que respeite suas necessidades individuais, sempre focando em tratamentos 
+              seguros, eficazes e transformadores.
             </p>
 
             <div className="grid grid-cols-2 gap-6 pt-4">
