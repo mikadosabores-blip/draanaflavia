@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import clientElderly from "@/assets/client-elderly.jpg";
+import clientElderly from "@/assets/client-elderly-elegant.jpg";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
