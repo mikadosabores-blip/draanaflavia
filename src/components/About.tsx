@@ -65,6 +65,17 @@ const About = () => {
             </button>
           </div>
         </div>
+
+        {/* Foto destaque da Dra. Ana Flávia */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
+            <img
+              src={draAnaFlaviaImage}
+              alt="Dra. Ana Flávia - Profissional de estética"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
