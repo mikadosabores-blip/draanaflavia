@@ -6,18 +6,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Ana Carolina Silva",
-      text: "A experiência na BelleVie foi transformadora! Os tratamentos faciais deixaram minha pele radiante e o atendimento foi impecável. Profissionais extremamente capacitados e atenciosos.",
+      text: "A experiência com a Dra. Ana Flávia foi transformadora! Os tratamentos faciais deixaram minha pele radiante e o atendimento foi impecável. Profissional extremamente capacitada e atenciosa.",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+      audio: null, // Espaço para áudio
     },
     {
       name: "Mariana Santos",
-      text: "Adoro a drenagem linfática! Sinto uma diferença incrível no meu corpo. A equipe é maravilhosa e o ambiente é super acolhedor. Recomendo muito!",
+      text: "Adoro os tratamentos! Sinto uma diferença incrível. A Dra. Ana Flávia é maravilhosa e o ambiente é super acolhedor. Recomendo muito!",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+      audio: null, // Espaço para áudio
     },
     {
       name: "Juliana Oliveira",
-      text: "Os tratamentos são excepcionais! Me sinto renovada após cada sessão. A BelleVie superou todas as minhas expectativas. Equipe nota 10!",
+      text: "Os tratamentos são excepcionais! Me sinto renovada após cada sessão. A Dra. Ana Flávia superou todas as minhas expectativas. Equipe nota 10!",
       image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop",
+      audio: null, // Espaço para áudio
     },
   ];
 
@@ -59,6 +62,23 @@ const Testimonials = () => {
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6 italic">
                   "{testimonials[currentIndex].text}"
                 </p>
+                
+                {/* Espaço para áudio */}
+                <div className="mb-6 bg-muted/30 rounded-xl p-4">
+                  <div className="flex items-center gap-3">
+                    <button className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
+                      <i className="ri-play-fill text-xl"></i>
+                    </button>
+                    <div className="flex-1 h-2 bg-muted rounded-full">
+                      <div className="h-full w-0 bg-primary rounded-full"></div>
+                    </div>
+                    <span className="text-sm text-muted-foreground">0:00</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2 text-center">
+                    Depoimento em áudio (adicionar arquivo)
+                  </p>
+                </div>
+
                 <p className="text-card-foreground font-bold text-xl">
                   {testimonials[currentIndex].name}
                 </p>

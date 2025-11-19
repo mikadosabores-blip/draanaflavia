@@ -1,4 +1,17 @@
 const Services = () => {
+  const treatmentsList = [
+    "Preenchimento Labial",
+    "Protocolo de Botox + Vitaminas",
+    "Harmonização Facial",
+    "Rinomodelação",
+    "Fios de PDO para Lifting Facial",
+    "Bioestimulador de Colágeno",
+    "Remoção de Pequenas Verrugas",
+    "Aplicação em Microvasos",
+    "Depilação a Laser",
+    "Ultrassom Microfocado",
+  ];
+
   const services = [
     {
       title: "Drenagem Linfática",
@@ -26,13 +39,27 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-muted/40">
+    <section id="services" className="py-20 bg-gradient-to-b from-muted/30 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Conheça nossos tratamentos
+            Conheça Nossos Tratamentos
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          
+          {/* Lista de tratamentos */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+              {treatmentsList.map((treatment, index) => (
+                <div key={index} className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <i className="ri-check-line text-primary text-lg"></i>
+                  </div>
+                  <span className="text-foreground font-medium">{treatment}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

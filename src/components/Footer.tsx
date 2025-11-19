@@ -96,13 +96,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-bold text-foreground mb-4">Nossos Serviços</h4>
+            <h4 className="text-lg font-bold text-foreground mb-4">Nossos Tratamentos</h4>
             <ul className="space-y-3">
-              <li className="text-muted-foreground">Drenagem Linfática</li>
-              <li className="text-muted-foreground">Massagem Relaxante</li>
-              <li className="text-muted-foreground">Tratamentos Faciais</li>
-              <li className="text-muted-foreground">Limpeza de Pele</li>
-              <li className="text-muted-foreground">Peeling Químico</li>
+              <li className="text-muted-foreground">Preenchimento Labial</li>
+              <li className="text-muted-foreground">Harmonização Facial</li>
+              <li className="text-muted-foreground">Rinomodelação</li>
+              <li className="text-muted-foreground">Fios de PDO</li>
+              <li className="text-muted-foreground">Depilação a Laser</li>
             </ul>
           </div>
 
@@ -112,18 +112,21 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <i className="ri-map-pin-line text-primary text-xl flex-shrink-0 mt-1"></i>
                 <span className="text-muted-foreground">
-                  Rua das Flores, 123<br />
-                  Centro, São Paulo - SP<br />
-                  CEP: 01234-567
+                  Rua Carlinhos José Ribeiro, Nº 187<br />
+                  Vila Jaiara - Anápolis, GO
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <i className="ri-phone-line text-primary text-xl"></i>
-                <span className="text-muted-foreground">(11) 98765-4321</span>
+                <a href="https://wa.me/5562991408248" className="text-muted-foreground hover:text-primary transition-colors">
+                  (62) 99140-8248
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <i className="ri-mail-line text-primary text-xl"></i>
-                <span className="text-muted-foreground">contato@bellevie.com.br</span>
+                <a href="mailto:anaflaviamendesferreira16@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  anaflaviamendesferreira16@gmail.com
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <i className="ri-time-line text-primary text-xl"></i>
@@ -135,13 +138,13 @@ const Footer = () => {
 
         <div className="mb-12 rounded-3xl overflow-hidden shadow-xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61462.35779992064!2d-48.99463543646027!3d-16.328540958553157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef6bd58d83801%3A0x6e380e0f9a97e77!2sAn%C3%A1polis%2C%20GO!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3838.8076649828434!2d-48.95632492491!3d-16.32866193827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a0ba5e8b5b5b5%3A0x5b5b5b5b5b5b5b5b!2sR.%20Carlinhos%20Jos%C3%A9%20Ribeiro%2C%20187%20-%20Vila%20Jaiara%2C%20An%C3%A1polis%20-%20GO!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
             width="100%"
             height="300"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localização Dra. Ana Flavia - Anápolis"
+            title="Localização Dra. Ana Flávia - Vila Jaiara, Anápolis"
             className="border-0"
           ></iframe>
         </div>
