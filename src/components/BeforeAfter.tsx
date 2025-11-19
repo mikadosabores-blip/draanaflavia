@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import beforeFacial1 from "@/assets/before-facial-1.jpg";
-import afterFacial1 from "@/assets/after-facial-1.jpg";
-import beforeBody1 from "@/assets/before-body-1.jpg";
-import afterBody1 from "@/assets/after-body-1.jpg";
-import beforeFacial2 from "@/assets/before-facial-2.jpg";
-import afterFacial2 from "@/assets/after-facial-2.jpg";
+import beforeAfterLips from "@/assets/before-after-lips.jpg";
+import beforeAfterLips2 from "@/assets/before-after-lips-2.jpg";
+import beforeAfterNose from "@/assets/before-after-nose.jpg";
+import beforeAfterFacial from "@/assets/before-after-facial.jpg";
+import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
+import clinicPhoto from "@/assets/clinic-photo.jpg";
 
 interface Treatment {
   id: number;
@@ -24,27 +24,43 @@ const BeforeAfter = () => {
   const treatments: Treatment[] = [
     {
       id: 1,
-      title: "Tratamento Facial Rejuvenescedor",
+      title: "Preenchimento Labial",
       category: "Facial",
-      beforeImage: beforeFacial1,
-      afterImage: afterFacial1,
-      description: "Resultado após 3 sessões de tratamento facial personalizado",
+      beforeImage: beforeAfterLips,
+      afterImage: beforeAfterLips,
+      description: "Resultado natural e harmonioso",
     },
     {
       id: 2,
-      title: "Drenagem Linfática Corporal",
-      category: "Corporal",
-      beforeImage: beforeBody1,
-      afterImage: afterBody1,
-      description: "Transformação após 8 sessões de drenagem linfática",
+      title: "Preenchimento Labial",
+      category: "Facial",
+      beforeImage: beforeAfterLips2,
+      afterImage: beforeAfterLips2,
+      description: "Lábios mais volumosos e definidos",
     },
     {
       id: 3,
+      title: "Rinomodelação",
+      category: "Facial",
+      beforeImage: beforeAfterNose,
+      afterImage: beforeAfterNose,
+      description: "Harmonização nasal sem cirurgia",
+    },
+    {
+      id: 4,
       title: "Tratamento Anti-idade",
       category: "Facial",
-      beforeImage: beforeFacial2,
-      afterImage: afterFacial2,
-      description: "Revitalização completa após protocolo anti-idade",
+      beforeImage: beforeAfterFacial,
+      afterImage: beforeAfterFacial,
+      description: "Rejuvenescimento facial completo",
+    },
+    {
+      id: 5,
+      title: "Harmonização Nasal",
+      category: "Facial",
+      beforeImage: beforeAfterNose2,
+      afterImage: beforeAfterNose2,
+      description: "Resultado natural e elegante",
     },
   ];
 
@@ -215,6 +231,30 @@ const BeforeAfter = () => {
                 aria-label={`Ver tratamento ${index + 1}`}
               />
             ))}
+          </div>
+        </div>
+
+        {/* Foto destaque da clínica */}
+        <div className="mt-12 max-w-4xl mx-auto">
+          <img
+            src={clinicPhoto}
+            alt="Dra. Ana Flávia realizando tratamento"
+            className="w-full rounded-3xl shadow-2xl"
+          />
+        </div>
+
+        {/* Seção de Vídeo */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <h3 className="text-3xl font-bold text-center text-foreground mb-8">
+            Veja os Resultados em Vídeo
+          </h3>
+          <div className="bg-card rounded-3xl shadow-2xl p-8">
+            <div className="aspect-video bg-muted rounded-xl flex items-center justify-center">
+              <p className="text-muted-foreground text-center">
+                <i className="ri-video-line text-4xl mb-2 block"></i>
+                Espaço para vídeo dos resultados
+              </p>
+            </div>
           </div>
         </div>
 
