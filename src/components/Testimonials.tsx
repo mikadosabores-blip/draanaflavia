@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import clientElderly from "@/assets/client-elderly.jpg";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const testimonials = [
     {
-      name: "Ana Carolina Silva",
+      name: "Maria da Conceição",
       text: "A experiência com a Dra. Ana Flávia foi transformadora! Os tratamentos faciais deixaram minha pele radiante e o atendimento foi impecável. Profissional extremamente capacitada e atenciosa.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-      audio: null, // Espaço para áudio
+      image: clientElderly,
+      audio: "/audio/testimonial-1.ogg",
     },
     {
       name: "Mariana Santos",
@@ -30,6 +33,29 @@ const Testimonials = () => {
 
   const prevTestimonial = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setIsPlaying(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleAudioEnded = () => {
+    setIsPlaying(false);
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+    }
   };
 
   return (
@@ -63,21 +89,34 @@ const Testimonials = () => {
                   "{testimonials[currentIndex].text}"
                 </p>
                 
-                {/* Espaço para áudio */}
-                <div className="mb-6 bg-muted/30 rounded-xl p-4">
-                  <div className="flex items-center gap-3">
-                    <button className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground">
-                      <i className="ri-play-fill text-xl"></i>
-                    </button>
-                    <div className="flex-1 h-2 bg-muted rounded-full">
-                      <div className="h-full w-0 bg-primary rounded-full"></div>
+                {/* Áudio do depoimento */}
+                {testimonials[currentIndex].audio && (
+                  <div className="mb-6 bg-muted/30 rounded-xl p-4">
+                    <audio 
+                      ref={audioRef}
+                      src={testimonials[currentIndex].audio}
+                      onEnded={handleAudioEnded}
+                      className="hidden"
+                    />
+                    <div className="flex items-center gap-3">
+                      <button 
+                        onClick={toggleAudio}
+                        className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground hover:opacity-90 transition-all"
+                      >
+                        <i className={`${isPlaying ? 'ri-pause-fill' : 'ri-play-fill'} text-xl`}></i>
+                      </button>
+                      <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                        <div className={`h-full bg-primary rounded-full transition-all ${isPlaying ? 'w-full animate-pulse' : 'w-0'}`}></div>
+                      </div>
+                      <span className="text-sm text-muted-foreground">
+                        <i className="ri-volume-up-line"></i>
+                      </span>
                     </div>
-                    <span className="text-sm text-muted-foreground">0:00</span>
+                    <p className="text-xs text-muted-foreground mt-2 text-center">
+                      Ouça o depoimento completo
+                    </p>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-2 text-center">
-                    Depoimento em áudio (adicionar arquivo)
-                  </p>
-                </div>
+                )}
 
                 <p className="text-card-foreground font-bold text-xl">
                   {testimonials[currentIndex].name}

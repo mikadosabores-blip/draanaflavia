@@ -27,7 +27,21 @@ const WhyChoose = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Por que escolher a Dra. Ana Flávia
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          
+          {/* Vídeo de apresentação */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
+              <video 
+                controls 
+                className="w-full aspect-video"
+                poster="/video/why-choose.mp4"
+              >
+                <source src="/video/why-choose.mp4" type="video/mp4" />
+                Seu navegador não suporta a reprodução de vídeos.
+              </video>
+            </div>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

@@ -1,3 +1,7 @@
+import serviceProcedure from "@/assets/service-procedure.jpg";
+import beforeAfterLips from "@/assets/before-after-lips.jpg";
+import beforeAfterFacial from "@/assets/before-after-facial.jpg";
+
 const Services = () => {
   const treatmentsList = [
     "Preenchimento Labial",
@@ -14,22 +18,22 @@ const Services = () => {
 
   const services = [
     {
-      title: "Drenagem Linfática",
+      title: "Preenchimento Labial",
       description:
-        "Técnica especializada que estimula o sistema linfático, reduzindo inchaços, eliminando toxinas e promovendo bem-estar completo com resultados visíveis.",
-      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop",
+        "Técnica avançada que proporciona volume e definição aos lábios de forma natural e harmoniosa, realçando a beleza do seu sorriso com resultados duradouros.",
+      image: beforeAfterLips,
     },
     {
-      title: "Massagem Relaxante",
+      title: "Protocolo de Botox + Vitaminas",
       description:
-        "Experiência de relaxamento profundo que alivia tensões musculares, reduz o estresse e restaura o equilíbrio entre corpo e mente de forma natural.",
-      image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop",
+        "Combinação exclusiva que suaviza linhas de expressão e rejuvenesce a pele, unindo os benefícios da toxina botulínica com a nutrição vitamínica profunda.",
+      image: serviceProcedure,
     },
     {
-      title: "Tratamentos Faciais",
+      title: "Harmonização Facial",
       description:
-        "Protocolos personalizados de cuidados faciais que rejuvenescem, hidratam e revitalizam sua pele, revelando uma aparência radiante e saudável.",
-      image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&h=600&fit=crop",
+        "Tratamento completo que equilibra as proporções faciais, realçando seus traços naturais e promovendo uma aparência harmoniosa e rejuvenescida.",
+      image: beforeAfterFacial,
     },
   ];
 
