@@ -23,7 +23,7 @@ const Hero = () => {
     const message = `*Novo Agendamento - Dra. Ana Flavia*%0A%0A*Nome:* ${formData.name}%0A*Email:* ${formData.email}%0A*Telefone:* ${formData.phone}%0A*Data:* ${formData.date}%0A*Horário:* ${formData.time}`;
     
     // Abrir WhatsApp
-    const whatsappUrl = `https://wa.me/5562945802200?text=${message}`;
+    const whatsappUrl = `https://wa.me/5562991408248?text=${message}`;
     window.open(whatsappUrl, '_blank');
     
     toast.success("Agendamento enviado! Você será redirecionado para o WhatsApp.");

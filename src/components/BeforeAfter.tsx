@@ -93,129 +93,142 @@ const BeforeAfter = () => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Main Comparison Slider */}
-          <div className="relative bg-card rounded-3xl shadow-2xl overflow-hidden mb-8">
-            <div
-              className="relative aspect-square md:aspect-video select-none"
-              onMouseMove={handleMouseMove}
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onTouchMove={handleTouchMove}
-              onTouchStart={handleMouseDown}
-              onTouchEnd={handleMouseUp}
-            >
-              {/* After Image (Background) */}
-              <img
-                src={currentTreatment.afterImage}
-                alt="Depois"
-                className="absolute inset-0 w-full h-full object-cover"
-                draggable={false}
-              />
+        {/* Carrossel de Cards */}
+        <div className="relative max-w-6xl mx-auto">
+          <div className="overflow-hidden">
+            <div className="flex gap-6 transition-transform duration-300 ease-in-out px-4">
+              {treatments.map((treatment, index) => (
+                <div
+                  key={treatment.id}
+                  className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-all duration-300 ${
+                    selectedTreatment === index ? "scale-105" : "scale-100"
+                  }`}
+                  onClick={() => setSelectedTreatment(index)}
+                >
+                  <div className="bg-card rounded-2xl shadow-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all">
+                    {/* Comparison Container */}
+                    <div
+                      className="relative aspect-square select-none"
+                      onMouseMove={selectedTreatment === index ? handleMouseMove : undefined}
+                      onMouseDown={selectedTreatment === index ? handleMouseDown : undefined}
+                      onMouseUp={selectedTreatment === index ? handleMouseUp : undefined}
+                      onMouseLeave={selectedTreatment === index ? handleMouseUp : undefined}
+                      onTouchMove={selectedTreatment === index ? handleTouchMove : undefined}
+                      onTouchStart={selectedTreatment === index ? handleMouseDown : undefined}
+                      onTouchEnd={selectedTreatment === index ? handleMouseUp : undefined}
+                    >
+                      {/* After Image */}
+                      <img
+                        src={treatment.afterImage}
+                        alt="Depois"
+                        className="absolute inset-0 w-full h-full object-cover"
+                        draggable={false}
+                      />
 
-              {/* Before Image (Overlay with clip) */}
-              <div
-                className="absolute inset-0 overflow-hidden"
-                style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
-              >
-                <img
-                  src={currentTreatment.beforeImage}
-                  alt="Antes"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  draggable={false}
-                />
-              </div>
+                      {/* Before Image with Clip */}
+                      <div
+                        className="absolute inset-0 overflow-hidden"
+                        style={{ 
+                          clipPath: selectedTreatment === index 
+                            ? `inset(0 ${100 - sliderPosition}% 0 0)` 
+                            : `inset(0 50% 0 0)` 
+                        }}
+                      >
+                        <img
+                          src={treatment.beforeImage}
+                          alt="Antes"
+                          className="absolute inset-0 w-full h-full object-cover"
+                          draggable={false}
+                        />
+                      </div>
 
-              {/* Slider Line and Handle */}
-              <div
-                className="absolute top-0 bottom-0 w-1 bg-primary cursor-ew-resize"
-                style={{ left: `${sliderPosition}%` }}
-              >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-primary rounded-full shadow-lg flex items-center justify-center">
-                  <div className="flex gap-1">
-                    <ChevronLeft className="w-4 h-4 text-primary-foreground" />
-                    <ChevronRight className="w-4 h-4 text-primary-foreground" />
+                      {/* Slider Line */}
+                      {selectedTreatment === index && (
+                        <div
+                          className="absolute top-0 bottom-0 w-1 bg-primary cursor-ew-resize"
+                          style={{ left: `${sliderPosition}%` }}
+                        >
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full shadow-lg flex items-center justify-center">
+                            <div className="flex gap-0.5">
+                              <ChevronLeft className="w-3 h-3 text-primary-foreground" />
+                              <ChevronRight className="w-3 h-3 text-primary-foreground" />
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Labels */}
+                      <div className="absolute top-3 left-3 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-xs font-medium text-foreground">Antes</span>
+                      </div>
+                      <div className="absolute top-3 right-3 bg-primary/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-xs font-medium text-primary-foreground">Depois</span>
+                      </div>
+                    </div>
+
+                    {/* Card Info */}
+                    <div className="p-4">
+                      <span className="inline-block px-3 py-1 bg-accent/50 rounded-full text-xs font-medium text-accent-foreground mb-2">
+                        {treatment.category}
+                      </span>
+                      <h3 className="text-lg font-bold text-foreground mb-1">
+                        {treatment.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">{treatment.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Labels */}
-              <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span className="text-sm font-medium text-foreground">Antes</span>
-              </div>
-              <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                <span className="text-sm font-medium text-primary-foreground">Depois</span>
-              </div>
+              ))}
             </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevTreatment}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
-              aria-label="Tratamento anterior"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextTreatment}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-background/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all"
-              aria-label="Próximo tratamento"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
           </div>
 
-          {/* Treatment Info */}
-          <div className="text-center mb-8 animate-fade-in">
-            <span className="inline-block px-4 py-2 bg-accent/50 rounded-full text-sm font-medium text-accent-foreground mb-3">
-              {currentTreatment.category}
-            </span>
-            <h3 className="text-2xl font-bold text-foreground mb-2">
-              {currentTreatment.title}
-            </h3>
-            <p className="text-muted-foreground">{currentTreatment.description}</p>
-          </div>
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevTreatment}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-background/95 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all z-10"
+            aria-label="Tratamento anterior"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={nextTreatment}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-background/95 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all z-10"
+            aria-label="Próximo tratamento"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
 
-          {/* Thumbnail Navigation */}
-          <div className="flex justify-center gap-4">
-            {treatments.map((treatment, index) => (
+          {/* Indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {treatments.map((_, index) => (
               <button
-                key={treatment.id}
+                key={index}
                 onClick={() => {
                   setSelectedTreatment(index);
                   setSliderPosition(50);
                 }}
-                className={`relative w-24 h-24 rounded-2xl overflow-hidden transition-all ${
+                className={`h-2 rounded-full transition-all ${
                   selectedTreatment === index
-                    ? "ring-4 ring-primary shadow-lg scale-110"
-                    : "opacity-60 hover:opacity-100"
+                    ? "bg-primary w-8"
+                    : "bg-muted w-2"
                 }`}
-              >
-                <img
-                  src={treatment.afterImage}
-                  alt={treatment.title}
-                  className="w-full h-full object-cover"
-                />
-                {selectedTreatment === index && (
-                  <div className="absolute inset-0 bg-primary/20"></div>
-                )}
-              </button>
+                aria-label={`Ver tratamento ${index + 1}`}
+              />
             ))}
           </div>
+        </div>
 
-          {/* CTA */}
-          <div className="text-center mt-12">
-            <button
-              onClick={() => {
-                const element = document.getElementById("appointment-form");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
-            >
-              Quero Minha Transformação
-            </button>
-          </div>
+        {/* CTA */}
+        <div className="text-center mt-12">
+          <button
+            onClick={() => {
+              const element = document.getElementById("appointment-form");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
+          >
+            Quero Minha Transformação
+          </button>
         </div>
       </div>
     </section>
