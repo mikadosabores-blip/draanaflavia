@@ -6,6 +6,7 @@ import beforeAfterNose from "@/assets/before-after-nose.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
 import clinicPhoto from "@/assets/clinic-photo.jpg";
+import draAnaProfessional from "@/assets/dra-ana-flavia-professional.jpg";
 
 interface Treatment {
   id: number;
@@ -243,18 +244,14 @@ const BeforeAfter = () => {
           />
         </div>
 
-        {/* Seção de Vídeo */}
+        {/* Foto destaque da Dra. Ana Flávia */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold text-center text-foreground mb-8">
-            Veja os Resultados em Vídeo
-          </h3>
-          <div className="bg-card rounded-3xl shadow-2xl p-8">
-            <div className="aspect-video bg-muted rounded-xl flex items-center justify-center">
-              <p className="text-muted-foreground text-center">
-                <i className="ri-video-line text-4xl mb-2 block"></i>
-                Espaço para vídeo dos resultados
-              </p>
-            </div>
+          <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
+            <img
+              src={draAnaProfessional}
+              alt="Dra. Ana Flávia - Profissional especializada em estética"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
 

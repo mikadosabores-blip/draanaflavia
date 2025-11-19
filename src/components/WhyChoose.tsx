@@ -31,11 +31,10 @@ const WhyChoose = () => {
           
           {/* Vídeo de apresentação */}
           <div className="max-w-4xl mx-auto mb-12">
-            <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
+            <div className="bg-black rounded-3xl shadow-2xl overflow-hidden">
               <video 
                 controls 
-                className="w-full aspect-video"
-                poster="/video/why-choose.mp4"
+                className="w-full aspect-video object-cover"
               >
                 <source src="/video/why-choose.mp4" type="video/mp4" />
                 Seu navegador não suporta a reprodução de vídeos.
