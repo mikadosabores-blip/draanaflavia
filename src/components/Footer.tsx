@@ -15,11 +15,11 @@ const Footer = () => {
               className="text-3xl font-bold text-primary mb-4"
               style={{ fontFamily: "Pacifico, serif" }}
             >
-              BelleVie
+              Dra. Ana Flavia
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Transformando vidas através da beleza e bem-estar com tratamentos exclusivos e
-              personalizados.
+              personalizados. Profissional dedicada com mais de 10 anos de experiência.
             </p>
             <div className="flex gap-3">
               <a
@@ -141,15 +141,15 @@ const Footer = () => {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Localização BelleVie"
+            title="Localização Dra. Ana Flavia"
             className="border-0"
           ></iframe>
         </div>
 
         <div className="border-t border-border pt-8 text-center">
-          <p className="text-muted-foreground">
-            © 2024 BelleVie. Todos os direitos reservados.
-          </p>
+        <p className="text-muted-foreground">
+          © 2024 Dra. Ana Flavia. Todos os direitos reservados.
+        </p>
         </div>
       </div>
     </footer>
