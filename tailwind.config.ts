@@ -47,13 +47,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        rose: {
-          primary: "hsl(var(--rose-primary))",
-          light: "hsl(var(--rose-light))",
+        gold: {
+          elegant: "hsl(var(--gold-elegant))",
+          soft: "hsl(var(--gold-soft))",
         },
-        peachy: "hsl(var(--peachy))",
+        black: {
+          elegant: "hsl(var(--black-elegant))",
+        },
         beige: {
-          soft: "hsl(var(--beige-soft))",
+          warm: "hsl(var(--beige-warm))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
