@@ -1,6 +1,6 @@
-import serviceProcedure from "@/assets/service-procedure-clean.jpg";
-import beforeAfterLips from "@/assets/before-after-lips-clean.jpg";
-import beforeAfterFacial from "@/assets/before-after-facial-clean.jpg";
+import serviceProcedure from "@/assets/service-procedure.jpg";
+import beforeAfterLips from "@/assets/before-after-lips.jpg";
+import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 
 const Services = () => {
   const treatmentsList = [
@@ -72,7 +72,7 @@ const Services = () => {
               key={index}
               className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="relative h-64 overflow-hidden bg-gradient-to-br from-muted/30 to-muted/50">
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title}

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import beforeAfterLips from "@/assets/before-after-lips-clean.jpg";
-import beforeAfterLips2 from "@/assets/before-after-lips-2-clean.jpg";
-import beforeAfterNose from "@/assets/before-after-nose-clean.jpg";
-import beforeAfterFacial from "@/assets/before-after-facial-clean.jpg";
-import beforeAfterNose2 from "@/assets/before-after-nose-2-clean.jpg";
+import beforeAfterLips from "@/assets/before-after-lips.jpg";
+import beforeAfterLips2 from "@/assets/before-after-lips-2.jpg";
+import beforeAfterNose from "@/assets/before-after-nose.jpg";
+import beforeAfterFacial from "@/assets/before-after-facial.jpg";
+import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
 import clinicPhoto from "@/assets/clinic-photo.jpg";
 import draAnaProfessional from "@/assets/dra-ana-flavia-professional-2.jpg";
 
@@ -125,7 +125,7 @@ const BeforeAfter = () => {
                   <div className="bg-card rounded-2xl shadow-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all">
                     {/* Comparison Container */}
                     <div
-                      className="relative aspect-square select-none bg-gradient-to-br from-muted/30 to-muted/50"
+                      className="relative aspect-square select-none"
                       onMouseMove={selectedTreatment === index ? handleMouseMove : undefined}
                       onMouseDown={selectedTreatment === index ? handleMouseDown : undefined}
                       onMouseUp={selectedTreatment === index ? handleMouseUp : undefined}
