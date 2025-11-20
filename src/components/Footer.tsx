@@ -12,8 +12,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-1">
             <h3
-              className="text-3xl font-bold text-primary mb-4"
-              style={{ fontFamily: "Pacifico, serif" }}
+              className="text-3xl font-bold text-primary mb-4 font-elegant"
             >
               Dra. Ana Flavia
             </h3>
@@ -151,7 +150,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 text-center">
         <p className="text-muted-foreground">
-          © 2024 Dra. Ana Flavia. Todos os direitos reservados.
+          © 2024 <span className="font-elegant">Dra. Ana Flavia</span>. Todos os direitos reservados.
         </p>
         </div>
       </div>
