@@ -50,6 +50,7 @@ export default {
         gold: {
           elegant: "hsl(var(--gold-elegant))",
           soft: "hsl(var(--gold-soft))",
+          light: "hsl(var(--gold-light))",
         },
         black: {
           elegant: "hsl(var(--black-elegant))",
