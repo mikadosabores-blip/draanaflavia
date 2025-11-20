@@ -1,6 +1,6 @@
 import serviceProcedure from "@/assets/service-procedure.jpg";
 import beforeAfterLips from "@/assets/before-after-lips.jpg";
-import beforeAfterFacial from "@/assets/before-after-facial.jpg";
+import beforeAfterFacial from "@/assets/before-after-facial-new.jpg";
 
 const Services = () => {
   const treatmentsList = [
