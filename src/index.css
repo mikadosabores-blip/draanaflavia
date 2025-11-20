@@ -17,39 +17,39 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 30 15% 15%;
 
-    --primary: 340 70% 60%;
+    --primary: 45 100% 51%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 40% 94%;
-    --secondary-foreground: 340 70% 60%;
+    --secondary-foreground: 45 100% 51%;
 
     --muted: 30 30% 95%;
     --muted-foreground: 30 10% 45%;
 
-    --accent: 25 85% 75%;
-    --accent-foreground: 30 15% 15%;
+    --accent: 45 90% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 30 25% 88%;
     --input: 30 25% 88%;
-    --ring: 340 70% 60%;
+    --ring: 45 100% 51%;
 
     --radius: 1rem;
     
     /* Elegant Aesthetic Colors */
-    --rose-elegant: 340 70% 60%;
-    --gold-soft: 35 60% 75%;
-    --peachy: 25 85% 90%;
+    --gold-elegant: 45 100% 51%;
+    --gold-soft: 42 85% 65%;
+    --black-elegant: 0 0% 10%;
     --beige-warm: 30 35% 92%;
     
     /* Elegant Gradients */
-    --gradient-elegant: linear-gradient(135deg, hsl(340 70% 60%) 0%, hsl(25 85% 75%) 100%);
+    --gradient-elegant: linear-gradient(135deg, hsl(45 100% 51%) 0%, hsl(42 85% 65%) 100%);
     --gradient-soft: linear-gradient(180deg, hsl(30 35% 98%) 0%, hsl(30 30% 95%) 100%);
     
     /* Elegant Shadows */
-    --shadow-elegant: 0 10px 40px -10px hsl(340 70% 60% / 0.25);
+    --shadow-elegant: 0 10px 40px -10px hsl(45 100% 51% / 0.25);
     --shadow-soft: 0 6px 24px -4px hsl(30 40% 70% / 0.2);
 
     --sidebar-background: 0 0% 98%;
@@ -79,7 +79,7 @@ All colors MUST be HSL.
     --popover: 30 20% 12%;
     --popover-foreground: 30 10% 98%;
 
-    --primary: 340 70% 60%;
+    --primary: 45 100% 51%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 20% 18%;
@@ -88,15 +88,15 @@ All colors MUST be HSL.
     --muted: 30 20% 18%;
     --muted-foreground: 30 10% 70%;
 
-    --accent: 25 85% 75%;
-    --accent-foreground: 30 20% 12%;
+    --accent: 45 90% 60%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 30 20% 20%;
     --input: 30 20% 20%;
-    --ring: 340 70% 60%;
+    --ring: 45 100% 51%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

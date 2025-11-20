@@ -6,7 +6,7 @@ import beforeAfterNose from "@/assets/before-after-nose.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
 import clinicPhoto from "@/assets/clinic-photo.jpg";
-import draAnaProfessional from "@/assets/dra-ana-flavia-professional.jpg";
+import draAnaProfessional from "@/assets/dra-ana-flavia-professional-2.jpg";
 
 interface Treatment {
   id: number;
