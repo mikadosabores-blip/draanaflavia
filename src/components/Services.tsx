@@ -72,13 +72,13 @@ const Services = () => {
               key={index}
               className="bg-card rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden bg-card">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  style={{ imageRendering: 'crisp-edges' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
               </div>
 
               <div className="p-8">
