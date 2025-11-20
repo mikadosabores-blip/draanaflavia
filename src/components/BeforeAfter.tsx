@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import beforeAfterLips from "@/assets/before-after-lips.jpg";
-import beforeAfterLips2 from "@/assets/before-after-lips-2.jpg";
-import beforeAfterNose from "@/assets/before-after-nose.jpg";
-import beforeAfterFacial from "@/assets/before-after-facial.jpg";
-import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
+import beforeAfterLips from "@/assets/before-after-lips-clean.jpg";
+import beforeAfterLips2 from "@/assets/before-after-lips-2-clean.jpg";
+import beforeAfterNose from "@/assets/before-after-nose-clean.jpg";
+import beforeAfterFacial from "@/assets/before-after-facial-clean.jpg";
+import beforeAfterNose2 from "@/assets/before-after-nose-2-clean.jpg";
 import clinicPhoto from "@/assets/clinic-photo.jpg";
-import draAnaProfessional from "@/assets/dra-ana-flavia-professional-nobg.png";
+import draAnaProfessional from "@/assets/dra-ana-flavia-professional-2.jpg";
 
 interface Treatment {
   id: number;
@@ -125,7 +125,7 @@ const BeforeAfter = () => {
                   <div className="bg-card rounded-2xl shadow-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all">
                     {/* Comparison Container */}
                     <div
-                      className="relative aspect-square select-none"
+                      className="relative aspect-square select-none bg-gradient-to-br from-muted/30 to-muted/50"
                       onMouseMove={selectedTreatment === index ? handleMouseMove : undefined}
                       onMouseDown={selectedTreatment === index ? handleMouseDown : undefined}
                       onMouseUp={selectedTreatment === index ? handleMouseUp : undefined}
@@ -246,12 +246,11 @@ const BeforeAfter = () => {
 
         {/* Foto destaque da Dra. Ana Flávia */}
         <div className="mt-16 max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-background via-muted/50 to-primary/10 rounded-3xl shadow-2xl overflow-hidden p-8">
+          <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
             <img
               src={draAnaProfessional}
               alt="Dra. Ana Flávia - Profissional especializada em estética"
-              className="w-full h-auto object-contain mx-auto"
-              style={{ filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15))' }}
+              className="w-full h-auto object-cover"
             />
           </div>
         </div>
