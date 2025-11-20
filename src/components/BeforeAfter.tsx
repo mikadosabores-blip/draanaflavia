@@ -106,7 +106,7 @@ const BeforeAfter = () => {
           <div className="w-24 h-1 bg-primary rounded-full mx-auto mb-6"></div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Veja os resultados incríveis alcançados pelos nossos clientes com os tratamentos
-            personalizados da Dra. Ana Flavia
+            personalizados da <span className="font-elegant">Dra. Ana Flavia</span>
           </p>
         </div>
 
