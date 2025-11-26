@@ -82,8 +82,9 @@ const Services = () => {
               </div>
 
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-card-foreground mb-4">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">{service.description}</p>
+                <span className="inline-block px-3 py-1 text-xs font-semibold bg-primary/20 text-primary rounded-full mb-3">Facial</span>
+                <h3 className="text-2xl font-bold text-primary mb-4">{service.title}</h3>
+                <p className="text-foreground/80 leading-relaxed mb-6">{service.description}</p>
                 <button
                   onClick={scrollToAppointment}
                   className="bg-primary text-primary-foreground px-6 py-3 rounded-full hover:opacity-90 transition-all shadow-md hover:shadow-lg"
