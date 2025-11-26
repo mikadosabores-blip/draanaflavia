@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 30 15% 15%;
 
-    --primary: 43 74% 49%;
+    --primary: 46 70% 52%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 40% 94%;
-    --secondary-foreground: 43 74% 49%;
+    --secondary-foreground: 46 70% 52%;
 
     --muted: 30 30% 95%;
     --muted-foreground: 30 10% 45%;
 
-    --accent: 43 74% 49%;
+    --accent: 46 70% 52%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,25 +34,25 @@ All colors MUST be HSL.
 
     --border: 30 25% 88%;
     --input: 30 25% 88%;
-    --ring: 43 74% 49%;
+    --ring: 46 70% 52%;
 
     --radius: 1rem;
     
     /* Elegant Aesthetic Colors */
-    --gold-elegant: 43 74% 49%;
-    --gold-soft: 45 65% 58%;
-    --gold-light: 48 85% 88%;
+    --gold-elegant: 46 70% 52%;
+    --gold-soft: 46 60% 60%;
+    --gold-light: 46 80% 85%;
     --black-elegant: 0 0% 8%;
     --beige-warm: 30 35% 92%;
     
     /* Elegant Gradients */
-    --gradient-elegant: linear-gradient(135deg, hsl(43 74% 49%) 0%, hsl(45 65% 58%) 100%);
-    --gradient-gold-shine: linear-gradient(145deg, hsl(43 74% 49%) 0%, hsl(48 85% 88%) 50%, hsl(43 74% 49%) 100%);
+    --gradient-elegant: linear-gradient(135deg, hsl(46 70% 52%) 0%, hsl(46 60% 60%) 100%);
+    --gradient-gold-shine: linear-gradient(145deg, hsl(46 70% 52%) 0%, hsl(46 80% 85%) 50%, hsl(46 70% 52%) 100%);
     --gradient-soft: linear-gradient(180deg, hsl(30 35% 98%) 0%, hsl(30 30% 95%) 100%);
     
     /* Elegant Shadows */
-    --shadow-elegant: 0 10px 40px -10px hsl(43 74% 49% / 0.35);
-    --shadow-gold-glow: 0 8px 32px -8px hsl(43 74% 49% / 0.4);
+    --shadow-elegant: 0 10px 40px -10px hsl(46 70% 52% / 0.35);
+    --shadow-gold-glow: 0 8px 32px -8px hsl(46 70% 52% / 0.4);
     --shadow-soft: 0 6px 24px -4px hsl(30 40% 70% / 0.2);
 
     --sidebar-background: 0 0% 98%;
@@ -82,7 +82,7 @@ All colors MUST be HSL.
     --popover: 30 20% 12%;
     --popover-foreground: 30 10% 98%;
 
-    --primary: 43 74% 49%;
+    --primary: 46 70% 52%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 20% 18%;
@@ -91,7 +91,7 @@ All colors MUST be HSL.
     --muted: 30 20% 18%;
     --muted-foreground: 30 10% 70%;
 
-    --accent: 43 74% 49%;
+    --accent: 46 70% 52%;
     --accent-foreground: 0 0% 8%;
 
     --destructive: 0 62.8% 50%;
@@ -99,7 +99,7 @@ All colors MUST be HSL.
 
     --border: 30 20% 20%;
     --input: 30 20% 20%;
-    --ring: 43 74% 49%;
+    --ring: 46 70% 52%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
