@@ -111,12 +111,10 @@ const BeforeAfter = () => {
                         <img src={treatment.beforeImage} alt="Antes" className="absolute inset-0 w-full h-full object-cover" draggable={false} />
                       </div>
 
-                      {/* Slider Line */}
-                      {selectedTreatment === index && <div className="absolute top-0 bottom-0 w-1 bg-primary cursor-ew-resize" style={{
+                      {/* Slider Line - invisible but functional */}
+                      {selectedTreatment === index && <div className="absolute top-0 bottom-0 w-0.5 bg-transparent cursor-ew-resize" style={{
                     left: `${sliderPosition}%`
-                  }}>
-                          
-                        </div>}
+                  }} />}
 
                       {/* Labels */}
                       <div className="absolute top-3 left-3 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full">
