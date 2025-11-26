@@ -1,19 +1,16 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import heroBackground from "@/assets/clinic-hero-bg.jpg";
-
 const Hero = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     date: "",
-    time: "",
+    time: ""
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!formData.name || !formData.email || !formData.phone || !formData.date || !formData.time) {
       toast.error("Por favor, preencha todos os campos!");
       return;
@@ -21,33 +18,32 @@ const Hero = () => {
 
     // Formatar a mensagem para WhatsApp
     const message = `*Novo Agendamento - Dra. Ana Flavia*%0A%0A*Nome:* ${formData.name}%0A*Email:* ${formData.email}%0A*Telefone:* ${formData.phone}%0A*Data:* ${formData.date}%0A*Horário:* ${formData.time}`;
-    
+
     // Abrir WhatsApp
     const whatsappUrl = `https://wa.me/5562991408248?text=${message}`;
     window.open(whatsappUrl, '_blank');
-    
     toast.success("Agendamento enviado! Você será redirecionado para o WhatsApp.");
-    setFormData({ name: "", email: "", phone: "", date: "", time: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      date: "",
+      time: ""
+    });
   };
-
-  return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center pt-20 bg-cover bg-center"
-      style={{
-        backgroundImage: `url('${heroBackground}')`,
-      }}
-    >
+  return <section id="home" className="relative min-h-screen flex items-center pt-20 bg-cover bg-center" style={{
+    backgroundImage: `url('${heroBackground}')`
+  }}>
       <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-transparent"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <h2 className="text-5xl lg:text-6xl font-bold leading-tight bg-[#d9d9d9]/0 font-serif text-[#d4af37]">
                 Transforme Sua Beleza com Tratamentos Exclusivos
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg leading-relaxed font-medium text-black-elegant">
                 Descubra o poder da estética profissional com tratamentos personalizados que realçam sua beleza natural e promovem bem-estar completo.
               </p>
             </div>
@@ -73,13 +69,12 @@ const Hero = () => {
               </div>
             </div>
 
-            <button
-              onClick={() => {
-                const element = document.getElementById("appointment-form");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all shadow-lg hover:shadow-xl"
-            >
+            <button onClick={() => {
+            const element = document.getElementById("appointment-form");
+            element?.scrollIntoView({
+              behavior: "smooth"
+            });
+          }} className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:opacity-90 transition-all shadow-lg hover:shadow-xl">
               Agendar Agora
             </button>
           </div>
@@ -91,75 +86,52 @@ const Hero = () => {
                 <label className="block text-sm font-medium text-card-foreground mb-2">
                   Nome Completo
                 </label>
-                <input
-                  required
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  placeholder="Seu nome"
-                />
+                <input required type="text" value={formData.name} onChange={e => setFormData({
+                ...formData,
+                name: e.target.value
+              })} className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Seu nome" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-card-foreground mb-2">E-mail</label>
-                <input
-                  required
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  placeholder="seu@email.com"
-                />
+                <input required type="email" value={formData.email} onChange={e => setFormData({
+                ...formData,
+                email: e.target.value
+              })} className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="seu@email.com" />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-card-foreground mb-2">Telefone</label>
-                <input
-                  required
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  placeholder="(00) 00000-0000"
-                />
+                <input required type="tel" value={formData.phone} onChange={e => setFormData({
+                ...formData,
+                phone: e.target.value
+              })} className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="(00) 00000-0000" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-card-foreground mb-2">Data</label>
-                  <input
-                    required
-                    type="date"
-                    value={formData.date}
-                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  />
+                  <input required type="date" value={formData.date} onChange={e => setFormData({
+                  ...formData,
+                  date: e.target.value
+                })} className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-card-foreground mb-2">Horário</label>
-                  <input
-                    required
-                    type="time"
-                    value={formData.time}
-                    onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  />
+                  <input required type="time" value={formData.time} onChange={e => setFormData({
+                  ...formData,
+                  time: e.target.value
+                })} className="w-full px-4 py-3 rounded-xl border border-input bg-background focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-medium hover:opacity-90 transition-all shadow-md hover:shadow-lg"
-              >
-                Confirmar Agendamento
+              <button type="submit" className="w-full bg-primary py-4 rounded-xl font-medium hover:opacity-90 transition-all shadow-md hover:shadow-lg text-black-elegant">
+                Quero Agendar meu horário   
               </button>
             </form>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
