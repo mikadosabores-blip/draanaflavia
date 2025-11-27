@@ -157,15 +157,45 @@ const BeforeAfter = () => {
           </div>
         </div>
 
-        {/* Foto destaque da clínica */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <img src={clinicPhoto} alt="Dra. Ana Flávia realizando tratamento" className="w-full rounded-3xl shadow-2xl" />
-        </div>
+        {/* Fotos em Leque */}
+        <div className="mt-16 max-w-5xl mx-auto">
+          <div className="relative flex justify-center items-center h-[500px] md:h-[600px]">
+            {/* Imagem Esquerda - Rotacionada */}
+            <div className="absolute left-1/2 -translate-x-[85%] md:-translate-x-[110%] transform -rotate-6 hover:-rotate-3 transition-all duration-500 z-10 hover:z-30 group">
+              <div className="w-56 md:w-72 lg:w-80 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-background group-hover:shadow-primary/30 group-hover:scale-105 transition-all duration-500">
+                <img 
+                  src={clinicPhoto} 
+                  alt="Dra. Ana Flávia realizando tratamento" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
-        {/* Foto destaque da Dra. Ana Flávia */}
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="bg-card rounded-3xl shadow-2xl overflow-hidden">
-            <img src={draAnaProfessional} alt="Dra. Ana Flávia - Profissional especializada em estética" className="w-full h-auto object-cover" />
+            {/* Imagem Central - Principal */}
+            <div className="relative z-20 transform hover:scale-105 transition-all duration-500 group">
+              <div className="w-64 md:w-80 lg:w-96 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/50 group-hover:border-primary group-hover:shadow-primary/40 transition-all duration-500">
+                <img 
+                  src={draAnaProfessional} 
+                  alt="Dra. Ana Flávia - Profissional especializada em estética" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Etiqueta elegante */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-2 rounded-full shadow-lg">
+                <span className="font-elegant text-sm md:text-base font-semibold whitespace-nowrap">Dra. Ana Flávia</span>
+              </div>
+            </div>
+
+            {/* Imagem Direita - Rotacionada */}
+            <div className="absolute left-1/2 translate-x-[5%] md:translate-x-[30%] transform rotate-6 hover:rotate-3 transition-all duration-500 z-10 hover:z-30 group">
+              <div className="w-56 md:w-72 lg:w-80 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-background group-hover:shadow-primary/30 group-hover:scale-105 transition-all duration-500">
+                <img 
+                  src={clinicPhoto} 
+                  alt="Dra. Ana Flávia em atendimento" 
+                  className="w-full h-full object-cover object-left"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
