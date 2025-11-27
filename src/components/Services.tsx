@@ -1,20 +1,46 @@
 import serviceProcedure from "@/assets/service-procedure.jpg";
 import beforeAfterLips from "@/assets/before-after-lips.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial-new.jpg";
+import { useEffect, useRef, useState } from "react";
 
 const Services = () => {
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const timelineRef = useRef<HTMLDivElement>(null);
+
   const treatmentsList = [
-    "Preenchimento Labial",
-    "Protocolo de Botox + Vitaminas",
-    "Harmonização Facial",
-    "Rinomodelação",
-    "Fios de PDO para Lifting Facial",
-    "Bioestimulador de Colágeno",
-    "Remoção de Pequenas Verrugas",
-    "Aplicação em Microvasos",
-    "Depilação a Laser",
-    "Ultrassom Microfocado",
+    { name: "Preenchimento Labial", icon: "ri-heart-pulse-line" },
+    { name: "Protocolo de Botox + Vitaminas", icon: "ri-sparkling-line" },
+    { name: "Harmonização Facial", icon: "ri-magic-line" },
+    { name: "Rinomodelação", icon: "ri-focus-3-line" },
+    { name: "Fios de PDO para Lifting Facial", icon: "ri-arrow-up-double-line" },
+    { name: "Bioestimulador de Colágeno", icon: "ri-bubble-chart-line" },
+    { name: "Remoção de Pequenas Verrugas", icon: "ri-scissors-cut-line" },
+    { name: "Aplicação em Microvasos", icon: "ri-drop-line" },
+    { name: "Depilação a Laser", icon: "ri-flashlight-line" },
+    { name: "Ultrassom Microfocado", icon: "ri-sound-module-line" },
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          treatmentsList.forEach((_, index) => {
+            setTimeout(() => {
+              setVisibleItems((prev) => [...prev, index]);
+            }, index * 150);
+          });
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (timelineRef.current) {
+      observer.observe(timelineRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const services = [
     {
@@ -55,22 +81,58 @@ const Services = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Conheça Nossos Tratamentos
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-12"></div>
 
-          {/* Lista de tratamentos */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-              {treatmentsList.map((treatment, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 bg-card p-4 rounded-xl shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <i className="ri-check-line text-primary text-lg"></i>
+          {/* Timeline Elegante */}
+          <div ref={timelineRef} className="max-w-4xl mx-auto mb-16">
+            <div className="relative">
+              {/* Linha central luminosa */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary/20 via-primary to-primary/20 rounded-full shadow-[0_0_15px_hsl(var(--primary)/0.5)]" />
+              
+              {treatmentsList.map((treatment, index) => {
+                const isLeft = index % 2 === 0;
+                const isVisible = visibleItems.includes(index);
+                
+                return (
+                  <div
+                    key={index}
+                    className={`relative flex items-center mb-6 ${isLeft ? 'justify-start' : 'justify-end'}`}
+                  >
+                    {/* Conector luminoso */}
+                    <div 
+                      className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_hsl(var(--primary)/0.8)] z-10 transition-all duration-500 ${
+                        isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
+                      }`}
+                    >
+                      <div className="absolute inset-0 rounded-full bg-primary animate-ping opacity-30" />
+                    </div>
+                    
+                    {/* Card do tratamento */}
+                    <div
+                      className={`w-[45%] transition-all duration-700 ${
+                        isVisible 
+                          ? 'opacity-100 translate-x-0' 
+                          : isLeft 
+                            ? 'opacity-0 -translate-x-10' 
+                            : 'opacity-0 translate-x-10'
+                      }`}
+                    >
+                      <div className={`bg-card p-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 hover:border-primary/30 group ${
+                        isLeft ? 'mr-8' : 'ml-8'
+                      }`}>
+                        <div className={`flex items-center gap-4 ${isLeft ? '' : 'flex-row-reverse'}`}>
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <i className={`${treatment.icon} text-primary text-xl`}></i>
+                          </div>
+                          <span className={`text-foreground font-medium text-lg ${isLeft ? 'text-left' : 'text-right'}`}>
+                            {treatment.name}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-foreground font-medium">{treatment}</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
