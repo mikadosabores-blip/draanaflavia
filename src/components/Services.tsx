@@ -86,8 +86,8 @@ const Services = () => {
           {/* Timeline Elegante */}
           <div ref={timelineRef} className="max-w-4xl mx-auto mb-16">
             <div className="relative">
-              {/* Linha central luminosa */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary/20 via-primary to-primary/20 rounded-full shadow-[0_0_15px_hsl(var(--primary)/0.5)]" />
+              {/* Linha central luminosa - esquerda no mobile, centro no desktop */}
+              <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary/20 via-primary to-primary/20 rounded-full shadow-[0_0_15px_hsl(var(--primary)/0.5)]" />
               
               {treatmentsList.map((treatment, index) => {
                 const isLeft = index % 2 === 0;
@@ -96,11 +96,11 @@ const Services = () => {
                 return (
                   <div
                     key={index}
-                    className={`relative flex items-center mb-6 ${isLeft ? 'justify-start' : 'justify-end'}`}
+                    className={`relative flex items-center mb-6 md:${isLeft ? 'justify-start' : 'justify-end'}`}
                   >
                     {/* Conector luminoso */}
                     <div 
-                      className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_hsl(var(--primary)/0.8)] z-10 transition-all duration-500 ${
+                      className={`absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_hsl(var(--primary)/0.8)] z-10 transition-all duration-500 ${
                         isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
                       }`}
                     >
@@ -109,22 +109,20 @@ const Services = () => {
                     
                     {/* Card do tratamento */}
                     <div
-                      className={`w-[45%] transition-all duration-700 ${
+                      className={`w-full pl-12 md:pl-0 md:w-[45%] transition-all duration-700 ${
                         isVisible 
                           ? 'opacity-100 translate-x-0' 
-                          : isLeft 
-                            ? 'opacity-0 -translate-x-10' 
-                            : 'opacity-0 translate-x-10'
-                      }`}
+                          : 'opacity-0 -translate-x-10'
+                      } ${!isLeft ? 'md:ml-auto' : ''}`}
                     >
-                      <div className={`bg-card p-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 hover:border-primary/30 group ${
-                        isLeft ? 'mr-8' : 'ml-8'
+                      <div className={`bg-card p-4 md:p-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 hover:border-primary/30 group ${
+                        isLeft ? 'md:mr-8' : 'md:ml-8'
                       }`}>
-                        <div className={`flex items-center gap-4 ${isLeft ? '' : 'flex-row-reverse'}`}>
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                            <i className={`${treatment.icon} text-primary text-xl`}></i>
+                        <div className={`flex items-center gap-3 md:gap-4 ${isLeft ? '' : 'md:flex-row-reverse'}`}>
+                          <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                            <i className={`${treatment.icon} text-primary text-lg md:text-xl`}></i>
                           </div>
-                          <span className={`text-foreground font-medium text-lg ${isLeft ? 'text-left' : 'text-right'}`}>
+                          <span className={`text-foreground font-medium text-base md:text-lg text-left ${isLeft ? '' : 'md:text-right'}`}>
                             {treatment.name}
                           </span>
                         </div>
