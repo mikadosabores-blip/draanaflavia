@@ -125,7 +125,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <button type="submit" className="w-full bg-primary py-4 rounded-xl font-medium hover:opacity-90 transition-all shadow-md hover:shadow-lg text-black-elegant">
+              <button type="submit" className="w-full bg-primary py-4 rounded-xl font-medium hover:opacity-90 transition-all shadow-md hover:shadow-lg text-primary-foreground">
                 Quero Agendar meu horário   
               </button>
             </form>
