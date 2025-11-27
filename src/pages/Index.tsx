@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhyChoose from "@/components/WhyChoose";
 import Services from "@/components/Services";
-import BeforeAfter from "@/components/BeforeAfter";
+import FacialMap from "@/components/FacialMap";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
@@ -15,7 +15,7 @@ const Index = () => {
       <Hero />
       <WhyChoose />
       <Services />
-      <BeforeAfter />
+      <FacialMap />
       <Testimonials />
       <About />
       <Footer />
