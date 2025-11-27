@@ -112,54 +112,51 @@ const Testimonials = () => {
               <div
                 key={index}
                 onClick={() => openTestimonial(index)}
-                className="flex-shrink-0 w-80 bg-card rounded-2xl shadow-xl p-6 cursor-pointer group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:-translate-y-2 hover:scale-105"
+                className="flex-shrink-0 w-80 bg-gradient-to-br from-card via-card to-primary/5 rounded-2xl shadow-xl p-6 cursor-pointer group hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500 hover:-translate-y-3 hover:scale-105 border border-primary/20 hover:border-primary/50"
               >
                 {/* Avatar e Info */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className="relative">
+                    <div className="absolute inset-0 bg-primary/40 rounded-full blur-md group-hover:blur-lg transition-all"></div>
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-16 h-16 rounded-full object-cover border-3 border-primary/50 group-hover:border-primary transition-all duration-300"
+                      className="relative w-16 h-16 rounded-full object-cover border-3 border-primary group-hover:border-primary transition-all duration-300 shadow-lg"
                     />
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg">
                       <i className="ri-double-quotes-r text-xs text-primary-foreground"></i>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors">
+                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors text-lg">
                       {testimonial.name}
                     </h4>
-                    <span className="text-xs text-primary/80 font-medium">
+                    <span className="text-sm text-primary font-semibold">
                       {testimonial.treatment}
                     </span>
                   </div>
                 </div>
 
                 {/* Stars */}
-                <div className="flex gap-1 mb-3">
+                <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <i key={i} className="ri-star-fill text-yellow-400 text-sm"></i>
+                    <i key={i} className="ri-star-fill text-yellow-400 text-lg drop-shadow-sm"></i>
                   ))}
                 </div>
 
                 {/* Text Preview */}
-                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                <p className="text-foreground/80 text-sm leading-relaxed line-clamp-3 mb-4">
                   "{testimonial.text}"
                 </p>
 
                 {/* Click indicator */}
-                <div className="mt-4 flex items-center gap-2 text-xs text-primary/60 group-hover:text-primary transition-colors">
-                  <i className="ri-cursor-line"></i>
-                  <span>Clique para ver mais</span>
+                <div className="flex items-center gap-2 text-sm text-primary font-medium group-hover:translate-x-2 transition-transform">
+                  <span>Ver depoimento completo</span>
+                  <i className="ri-arrow-right-line"></i>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none z-10"></div>
         </div>
       </div>
 
