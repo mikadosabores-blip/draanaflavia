@@ -49,7 +49,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-muted/30 to-background">
+    <section id="services" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -90,30 +90,19 @@ const Services = () => {
                     alt={service.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   
-                  {/* Front Content */}
+                  {/* Front Content - Only at bottom */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center mb-4 shadow-lg">
-                      <i className={`${service.icon} text-2xl text-primary-foreground`}></i>
-                    </div>
                     <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-                    <p className="text-white/70 text-sm flex items-center gap-2">
-                      <i className="ri-hand-coin-line"></i>
+                    <p className="text-white/80 text-sm">
                       Passe o mouse para ver detalhes
                     </p>
-                  </div>
-
-                  {/* Decorative Corner */}
-                  <div className="absolute top-4 right-4">
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                      <i className="ri-arrow-right-up-line text-primary-foreground text-lg"></i>
-                    </div>
                   </div>
                 </div>
 
                 {/* Back Face */}
-                <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl overflow-hidden bg-gradient-to-br from-card via-card to-primary/5 border border-primary/20 shadow-xl">
+                <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl overflow-hidden bg-card border border-primary/20 shadow-xl">
                   <div className="h-full flex flex-col p-8">
                     {/* Back Header */}
                     <div className="flex items-center gap-3 mb-6">
@@ -151,7 +140,6 @@ const Services = () => {
                       <i className="ri-calendar-check-line"></i>
                     </button>
                   </div>
-
                 </div>
               </div>
             </div>
