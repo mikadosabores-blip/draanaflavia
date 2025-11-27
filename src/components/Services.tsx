@@ -152,9 +152,6 @@ const Services = () => {
                     </button>
                   </div>
 
-                  {/* Decorative Elements */}
-                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
-                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl"></div>
                 </div>
               </div>
             </div>
