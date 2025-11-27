@@ -7,6 +7,7 @@ import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
 import clinicPhoto from "@/assets/clinic-photo.jpg";
 import draAnaProfessional from "@/assets/dra-ana-flavia-professional-2.jpg";
+import draAnaElegant from "@/assets/dra-ana-flavia-elegant.png";
 interface Treatment {
   id: number;
   title: string;
@@ -190,9 +191,9 @@ const BeforeAfter = () => {
             <div className="absolute left-1/2 translate-x-[5%] md:translate-x-[30%] transform rotate-6 hover:rotate-3 transition-all duration-500 z-10 hover:z-30 group">
               <div className="w-56 md:w-72 lg:w-80 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-background group-hover:shadow-primary/30 group-hover:scale-105 transition-all duration-500">
                 <img 
-                  src={clinicPhoto} 
-                  alt="Dra. Ana Flávia em atendimento" 
-                  className="w-full h-full object-cover object-left"
+                  src={draAnaElegant} 
+                  alt="Dra. Ana Flávia elegante" 
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
