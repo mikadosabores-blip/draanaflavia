@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import beforeAfterLips from "@/assets/before-after-lips.jpg";
 import beforeAfterLips2 from "@/assets/before-after-lips-2.jpg";
@@ -20,6 +20,25 @@ const BeforeAfter = () => {
   const [selectedTreatment, setSelectedTreatment] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [fanVisible, setFanVisible] = useState(false);
+  const fanRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setFanVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (fanRef.current) {
+      observer.observe(fanRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   const treatments: Treatment[] = [{
     id: 1,
     title: "Preenchimento Labial",
@@ -159,10 +178,10 @@ const BeforeAfter = () => {
         </div>
 
         {/* Fotos em Leque */}
-        <div className="mt-16 max-w-5xl mx-auto">
+        <div ref={fanRef} className="mt-16 max-w-5xl mx-auto">
           <div className="relative flex justify-center items-center h-[500px] md:h-[600px]">
             {/* Imagem Esquerda - Rotacionada */}
-            <div className="absolute left-1/2 -translate-x-[85%] md:-translate-x-[110%] transform -rotate-6 hover:-rotate-3 transition-all duration-500 z-10 hover:z-30 group">
+            <div className={`absolute left-1/2 -translate-x-[85%] md:-translate-x-[110%] transform -rotate-6 hover:-rotate-3 transition-all duration-700 z-10 hover:z-30 group ${fanVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '0.1s' }}>
               <div className="w-56 md:w-72 lg:w-80 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-background group-hover:shadow-primary/30 group-hover:scale-105 transition-all duration-500">
                 <img 
                   src={clinicPhoto} 
@@ -173,7 +192,7 @@ const BeforeAfter = () => {
             </div>
 
             {/* Imagem Central - Principal */}
-            <div className="relative z-20 transform hover:scale-105 transition-all duration-500 group">
+            <div className={`relative z-20 transform hover:scale-105 transition-all duration-700 group ${fanVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '0.3s' }}>
               <div className="w-64 md:w-80 lg:w-96 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/50 group-hover:border-primary group-hover:shadow-primary/40 transition-all duration-500">
                 <img 
                   src={draAnaProfessional} 
@@ -182,13 +201,13 @@ const BeforeAfter = () => {
                 />
               </div>
               {/* Etiqueta elegante */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-2 rounded-full shadow-lg">
+              <div className={`absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-2 rounded-full shadow-lg transition-all duration-500 ${fanVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`} style={{ transitionDelay: '0.6s' }}>
                 <span className="font-elegant text-sm md:text-base font-semibold whitespace-nowrap">Dra. Ana Flávia</span>
               </div>
             </div>
 
             {/* Imagem Direita - Rotacionada */}
-            <div className="absolute left-1/2 translate-x-[5%] md:translate-x-[30%] transform rotate-6 hover:rotate-3 transition-all duration-500 z-10 hover:z-30 group">
+            <div className={`absolute left-1/2 translate-x-[5%] md:translate-x-[30%] transform rotate-6 hover:rotate-3 transition-all duration-700 z-10 hover:z-30 group ${fanVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transitionDelay: '0.5s' }}>
               <div className="w-56 md:w-72 lg:w-80 aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-background group-hover:shadow-primary/30 group-hover:scale-105 transition-all duration-500">
                 <img 
                   src={draAnaElegant} 
