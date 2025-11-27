@@ -1,11 +1,8 @@
-import { useEffect, useRef } from "react";
 import serviceProcedure from "@/assets/service-procedure.jpg";
 import beforeAfterLips from "@/assets/before-after-lips.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial-new.jpg";
 
 const Services = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
   const treatmentsList = [
     { name: "Preenchimento Labial", icon: "ri-heart-pulse-line" },
     { name: "Protocolo de Botox + Vitaminas", icon: "ri-sparkling-line" },
@@ -37,174 +34,109 @@ const Services = () => {
     },
   ];
 
-  // Animated particles background
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number }[] = [];
-    const particleCount = 50;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
-      });
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212, 175, 55, ${p.opacity})`;
-        ctx.fill();
-      });
-
-      // Draw connections
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach((p2) => {
-          const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(212, 175, 55, ${0.1 * (1 - dist / 120)})`;
-            ctx.stroke();
-          }
-        });
-      });
-
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    return () => window.removeEventListener("resize", resizeCanvas);
-  }, []);
-
   const scrollToAppointment = () => {
     const element = document.getElementById("appointment-form");
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="services" className="relative py-20 bg-black overflow-hidden">
-      {/* Animated Particle Background */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
-      />
-
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+    <section id="services" className="relative py-20 overflow-hidden bg-black">
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-animated" />
+      
+      {/* Floating Orbs */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/30 rounded-full blur-[100px] animate-float-slow" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-float-slower" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] animate-pulse-slow" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
-          <span className="text-primary font-medium tracking-widest uppercase text-sm">
+          <span className="inline-block px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-primary font-medium tracking-widest uppercase text-sm mb-4">
             Excelência em Estética
           </span>
           <h2 className="text-4xl lg:text-6xl font-bold text-white mt-4 mb-6">
             Conheça Nossos <span className="text-primary">Tratamentos</span>
           </h2>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full"></div>
         </div>
 
-        {/* Hexagonal Grid */}
-        <div className="mb-20">
-          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
-            {treatmentsList.map((treatment, index) => (
-              <div
-                key={index}
-                className="group relative"
-                style={{
-                  animationDelay: `${index * 100}ms`,
-                }}
-              >
-                <div className="relative w-[180px] h-[160px] flex items-center justify-center cursor-pointer transition-all duration-500 group-hover:scale-110">
-                  {/* Hexagon shape */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 to-zinc-800 clip-hexagon border-2 border-primary/20 group-hover:border-primary transition-all duration-500">
-                    {/* Glow effect on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/20 to-transparent" />
+        {/* Glassmorphism Floating Cards Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-20">
+          {treatmentsList.map((treatment, index) => (
+            <div
+              key={index}
+              className="group animate-float"
+              style={{
+                animationDelay: `${index * 0.2}s`,
+                animationDuration: `${3 + (index % 3)}s`,
+              }}
+            >
+              <div className="relative h-full p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all duration-500 cursor-pointer group-hover:shadow-lg group-hover:shadow-primary/20">
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Content */}
+                <div className="relative z-10 text-center">
+                  <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <i className={`${treatment.icon} text-primary group-hover:text-black text-xl transition-colors duration-300`}></i>
                   </div>
-                  
-                  {/* Content */}
-                  <div className="relative z-10 text-center px-4">
-                    <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <i className={`${treatment.icon} text-primary group-hover:text-black text-lg transition-colors duration-300`}></i>
-                    </div>
-                    <span className="text-white/90 text-sm font-medium leading-tight block group-hover:text-white transition-colors">
-                      {treatment.name}
-                    </span>
-                  </div>
+                  <span className="text-white/80 text-sm font-medium leading-tight block group-hover:text-white transition-colors">
+                    {treatment.name}
+                  </span>
+                </div>
 
-                  {/* Shine effect */}
-                  <div className="absolute inset-0 clip-hexagon overflow-hidden">
-                    <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:animate-shine" />
-                  </div>
+                {/* Shine sweep */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                  <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-12 group-hover:animate-shine" />
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
-        {/* Featured Services - 3D Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Featured Services - Glassmorphism Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group h-[400px] [perspective:1000px]"
+              className="group animate-float"
+              style={{
+                animationDelay: `${index * 0.3}s`,
+                animationDuration: `${4 + index}s`,
+              }}
             >
-              <div className="relative w-full h-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                {/* Front Face */}
-                <div className="absolute inset-0 [backface-visibility:hidden] rounded-3xl overflow-hidden border border-primary/20">
+              <div className="relative h-[450px] rounded-3xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20">
+                {/* Image */}
+                <div className="absolute inset-0">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
                 </div>
 
-                {/* Back Face */}
-                <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl overflow-hidden bg-gradient-to-br from-zinc-900 to-black border border-primary/30">
-                  <div className="h-full flex flex-col p-8 justify-center">
-                    <h3 className="text-xl font-bold text-primary mb-4">{service.title}</h3>
-                    <p className="text-white/80 leading-relaxed mb-6">
+                {/* Content */}
+                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  {/* Glass card overlay */}
+                  <div className="relative p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
+                    <p className="text-white/70 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                       {service.description}
                     </p>
                     <button
                       onClick={scrollToAppointment}
-                      className="bg-primary py-3 px-6 rounded-full font-semibold hover:opacity-90 transition-all text-black"
+                      className="w-full bg-primary/90 backdrop-blur-sm py-3 rounded-xl font-semibold hover:bg-primary transition-all text-black flex items-center justify-center gap-2"
                     >
-                      Agendar Tratamento
+                      <span>Agendar</span>
+                      <i className="ri-arrow-right-line"></i>
                     </button>
                   </div>
                 </div>
+
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/30 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           ))}
@@ -214,22 +146,68 @@ const Services = () => {
         <div className="text-center mt-16">
           <button
             onClick={scrollToAppointment}
-            className="inline-flex items-center gap-3 bg-primary px-8 py-4 rounded-full font-semibold hover:scale-105 transition-all text-black shadow-lg shadow-primary/30"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold bg-white/5 backdrop-blur-md border border-white/20 hover:border-primary/50 hover:bg-white/10 transition-all text-white shadow-lg hover:shadow-primary/20"
           >
             <span>Agende Sua Avaliação Gratuita</span>
-            <i className="ri-arrow-right-line"></i>
+            <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
           </button>
         </div>
       </div>
 
       <style>{`
-        .clip-hexagon {
-          clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        .bg-gradient-animated {
+          background: linear-gradient(-45deg, #000000, #1a1a1a, #0d0d0d, #000000);
+          background-size: 400% 400%;
+          animation: gradientShift 15s ease infinite;
         }
+        
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-30px) translateX(20px); }
+        }
+        
+        .animate-float-slow {
+          animation: floatSlow 8s ease-in-out infinite;
+        }
+        
+        @keyframes floatSlower {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(20px) translateX(-30px); }
+        }
+        
+        .animate-float-slower {
+          animation: floatSlower 12s ease-in-out infinite;
+        }
+        
+        @keyframes pulseSlow {
+          0%, 100% { opacity: 0.1; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 0.2; transform: translate(-50%, -50%) scale(1.1); }
+        }
+        
+        .animate-pulse-slow {
+          animation: pulseSlow 6s ease-in-out infinite;
+        }
+        
         @keyframes shine {
           0% { transform: translateX(-100%) skewX(-12deg); }
           100% { transform: translateX(200%) skewX(-12deg); }
         }
+        
         .group-hover\\:animate-shine {
           animation: shine 1s ease-in-out;
         }
