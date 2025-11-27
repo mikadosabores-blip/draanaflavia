@@ -106,8 +106,8 @@ const Services = () => {
 
                   {/* Decorative Corner */}
                   <div className="absolute top-4 right-4">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                      <i className="ri-arrow-right-up-line text-primary text-lg"></i>
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                      <i className="ri-arrow-right-up-line text-primary-foreground text-lg"></i>
                     </div>
                   </div>
                 </div>
