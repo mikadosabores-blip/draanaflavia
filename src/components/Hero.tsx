@@ -40,12 +40,14 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-5xl lg:text-6xl font-bold leading-tight bg-[#d9d9d9]/0 font-serif text-[#d4af37]">
-                Transforme Sua Beleza com Tratamentos Exclusivos
-              </h2>
-              <p className="text-lg leading-relaxed font-medium text-black-elegant">
-                Descubra o poder da estética profissional com tratamentos personalizados que realçam sua beleza natural e promovem bem-estar completo.
-              </p>
+              <h2 className="lg:text-6xl font-bold leading-tight bg-[#d9d9d9]/0 font-serif text-[#d4af37] px-0 my-[38px] mx-0 py-0 text-4xl">
+
+
+
+
+
+Transforme Sua Beleza com Tratamentos Exclusivos</h2>
+              <p className="text-lg leading-relaxed font-medium text-black-elegant py-0">Descubra o poder da estética profissional com tratamentos personalizados que realçam sua beleza natural e promovem bem-estar completo.</p>
             </div>
 
             <div className="flex flex-wrap gap-6">
