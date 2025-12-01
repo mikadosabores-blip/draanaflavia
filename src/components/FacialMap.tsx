@@ -252,7 +252,7 @@ const FacialMap = () => {
                           <img 
                             src={transformation.image} 
                             alt={transformation.title}
-                            className="w-full h-full object-cover object-center"
+                            className="w-full h-full object-contain md:object-cover object-center"
                           />
                           
                           {/* Labels */}
