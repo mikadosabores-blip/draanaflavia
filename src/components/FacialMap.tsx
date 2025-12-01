@@ -4,6 +4,9 @@ import beforeAfterLips2 from "@/assets/before-after-lips-2.jpg";
 import beforeAfterNose from "@/assets/before-after-nose.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
+import beforeAfterEyesNew from "@/assets/before-after-eyes-new.png";
+import beforeAfterJawlineNew from "@/assets/before-after-jawline-new.png";
+import beforeAfterChinNew from "@/assets/before-after-chin-new.png";
 
 interface TreatmentArea {
   id: string;
@@ -43,7 +46,7 @@ const FacialMap = () => {
       transformations: [
         {
           title: "Rejuvenescimento Ocular",
-          image: beforeAfterFacial,
+          image: beforeAfterEyesNew,
           result: "Olhar mais jovem e descansado"
         }
       ]
@@ -104,8 +107,8 @@ const FacialMap = () => {
       position: { x: 50, y: 85 },
       transformations: [
         {
-          title: "Preenchimento de Queixo",
-          image: beforeAfterFacial,
+          title: "Transformação de Queixo",
+          image: beforeAfterChinNew,
           result: "Perfil mais harmonioso"
         }
       ]
@@ -117,8 +120,8 @@ const FacialMap = () => {
       position: { x: 75, y: 65 },
       transformations: [
         {
-          title: "Jawline Definition",
-          image: beforeAfterFacial,
+          title: "Definição de Contorno Mandibular",
+          image: beforeAfterJawlineNew,
           result: "Contorno facial esculpido"
         }
       ]
@@ -254,9 +257,8 @@ const FacialMap = () => {
                           <img 
                             src={transformation.image} 
                             alt={transformation.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="w-full h-full object-cover"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                           
                           {/* Labels */}
                           <div className="absolute top-3 left-3 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full">
