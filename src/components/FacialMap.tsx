@@ -2,7 +2,7 @@ import { useState } from "react";
 import beforeAfterNose from "@/assets/before-after-nose.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
-import beforeAfterEyesNew from "@/assets/before-after-facial-new.jpg";
+import beforeAfterEyesNew from "@/assets/before-after-eyes-real-2.png";
 import beforeAfterCheeksNew from "@/assets/before-after-nose-new.png";
 import beforeAfterJawlineNew from "@/assets/before-after-jawline-new.png";
 import beforeAfterChinNew from "@/assets/before-after-chin-new.png";
