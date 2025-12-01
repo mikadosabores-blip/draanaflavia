@@ -153,8 +153,8 @@ const Services = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   
                   {/* Front Content - Only at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-2xl font-bold text-primary drop-shadow-[0_4px_8px_rgba(0,0,0,1)]">{service.title}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-2xl font-bold text-primary">{service.title}</h3>
                   </div>
                 </div>
 
