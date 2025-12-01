@@ -1,6 +1,6 @@
 import serviceProcedure from "@/assets/service-procedure.jpg";
 import beforeAfterLips from "@/assets/before-after-lips.jpg";
-import beforeAfterFacial from "@/assets/before-after-facial-new.jpg";
+import harmonizacaoImage from "@/assets/before-after-harmonizacao-2.jpg";
 import { useEffect, useRef, useState } from "react";
 
 const Services = () => {
@@ -62,7 +62,7 @@ const Services = () => {
     {
       title: "Harmonização Facial",
       description: "Tratamento completo que equilibra as proporções faciais, realçando seus traços naturais e promovendo uma aparência harmoniosa e rejuvenescida.",
-      image: beforeAfterFacial,
+      image: harmonizacaoImage,
       icon: "ri-magic-line",
       duration: "60-90 min",
       recovery: "3-5 dias",
