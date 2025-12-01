@@ -17,7 +17,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
           <h1 className="text-3xl font-bold text-primary font-elegant">
-            Dra. Ana Flavia
+            Dra. Ana Flávia Mendes
           </h1>
           </div>
 

@@ -2,7 +2,8 @@ import { useState } from "react";
 import beforeAfterNose from "@/assets/before-after-nose.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
-import beforeAfterEyesNew from "@/assets/before-after-eyes-new.png";
+import beforeAfterEyesNew from "@/assets/before-after-facial-new.jpg";
+import beforeAfterCheeksNew from "@/assets/before-after-nose-new.png";
 import beforeAfterJawlineNew from "@/assets/before-after-jawline-new.png";
 import beforeAfterChinNew from "@/assets/before-after-chin-new.png";
 import beforeAfterLipsNew from "@/assets/before-after-lips-new.png";
@@ -76,7 +77,7 @@ const FacialMap = () => {
       transformations: [
         {
           title: "Preenchimento Malar",
-          image: beforeAfterFacial,
+          image: beforeAfterCheeksNew,
           result: "Contorno facial definido"
         }
       ]
@@ -131,8 +132,8 @@ const FacialMap = () => {
           </h2>
           <div className="w-24 h-1 bg-primary rounded-full mx-auto mb-6"></div>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Clique nas áreas do rosto para explorar os tratamentos e resultados da{" "}
-            <span className="font-elegant text-primary text-2xl font-bold">Dra. Ana Flávia</span>
+          Clique nas áreas do rosto para explorar os tratamentos e resultados da{" "}
+            <span className="font-elegant text-primary text-2xl font-bold">Dra. Ana Flávia Mendes</span>
           </p>
         </div>
 
@@ -251,7 +252,7 @@ const FacialMap = () => {
                           <img 
                             src={transformation.image} 
                             alt={transformation.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-center"
                           />
                           
                           {/* Labels */}

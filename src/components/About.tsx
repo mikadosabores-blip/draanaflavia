@@ -21,7 +21,7 @@ const About = () => {
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src={draAnaFlaviaImage}
-                alt="Dra. Ana Flavia"
+                alt="Dra. Ana Flávia Mendes"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -31,19 +31,19 @@ const About = () => {
 
           <div className="space-y-6">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 font-elegant">Sobre a Dra. Ana Flavia</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 font-elegant">Sobre a Dra. Ana Flávia Mendes</h2>
               <div className="w-24 h-1 bg-primary rounded-full mb-6"></div>
             </div>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
-              A <strong className="text-foreground font-elegant">Dra. Ana Flavia</strong> é uma profissional dedicada e apaixonada por estética e bem-estar. 
+              A <strong className="text-foreground font-elegant">Dra. Ana Flávia Mendes</strong> é uma profissional dedicada e apaixonada por estética e bem-estar. 
               Com mais de 10 anos de experiência, especializa-se em tratamentos estéticos personalizados que realçam 
               a beleza natural de cada cliente e promovem autoestima e confiança.
             </p>
 
             <p className="text-muted-foreground leading-relaxed text-lg">
               Sua filosofia de trabalho combina técnicas modernas e avançadas com produtos de alta qualidade premium, 
-              oferecendo resultados visíveis e duradouros. A <span className="font-elegant">Dra. Ana Flavia</span> acredita que cada pessoa é única e merece 
+              oferecendo resultados visíveis e duradouros. A <span className="font-elegant">Dra. Ana Flávia Mendes</span> acredita que cada pessoa é única e merece 
               um atendimento personalizado que respeite suas necessidades individuais, sempre focando em tratamentos 
               seguros, eficazes e transformadores.
             </p>

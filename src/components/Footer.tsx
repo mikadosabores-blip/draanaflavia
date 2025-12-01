@@ -14,7 +14,7 @@ const Footer = () => {
             <h3
               className="text-3xl font-bold text-primary mb-4 font-elegant"
             >
-              Dra. Ana Flavia
+              Dra. Ana Flávia Mendes
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
               Transformando vidas através da beleza e bem-estar com tratamentos exclusivos e
@@ -150,7 +150,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 text-center">
         <p className="text-muted-foreground">
-          © 2024 <span className="font-elegant">Dra. Ana Flavia</span>. Todos os direitos reservados.
+          © 2024 <span className="font-elegant">Dra. Ana Flávia Mendes</span>. Todos os direitos reservados.
         </p>
         </div>
       </div>
