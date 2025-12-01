@@ -17,7 +17,7 @@ const Hero = () => {
     }
 
     // Formatar a mensagem para WhatsApp
-    const message = `*Novo Agendamento - Dra. Ana Flavia*%0A%0A*Nome:* ${formData.name}%0A*Email:* ${formData.email}%0A*Telefone:* ${formData.phone}%0A*Data:* ${formData.date}%0A*Horário:* ${formData.time}`;
+    const message = `*Novo Agendamento - Dra. Ana Flávia Mendes*%0A%0A*Nome:* ${formData.name}%0A*Email:* ${formData.email}%0A*Telefone:* ${formData.phone}%0A*Data:* ${formData.date}%0A*Horário:* ${formData.time}`;
 
     // Abrir WhatsApp
     const whatsappUrl = `https://wa.me/5562991408248?text=${message}`;
