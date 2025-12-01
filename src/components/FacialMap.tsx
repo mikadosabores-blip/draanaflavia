@@ -1,12 +1,11 @@
 import { useState } from "react";
-import beforeAfterLips from "@/assets/before-after-lips.jpg";
-import beforeAfterLips2 from "@/assets/before-after-lips-2.jpg";
 import beforeAfterNose from "@/assets/before-after-nose.jpg";
 import beforeAfterFacial from "@/assets/before-after-facial.jpg";
 import beforeAfterNose2 from "@/assets/before-after-nose-2.jpg";
 import beforeAfterEyesNew from "@/assets/before-after-eyes-new.png";
 import beforeAfterJawlineNew from "@/assets/before-after-jawline-new.png";
 import beforeAfterChinNew from "@/assets/before-after-chin-new.png";
+import beforeAfterLipsNew from "@/assets/before-after-lips-new.png";
 
 interface TreatmentArea {
   id: string;
@@ -89,13 +88,8 @@ const FacialMap = () => {
       position: { x: 50, y: 68 },
       transformations: [
         {
-          title: "Preenchimento Natural",
-          image: beforeAfterLips,
-          result: "Volume natural e hidratação"
-        },
-        {
-          title: "Definição de Contorno",
-          image: beforeAfterLips2,
+          title: "Preenchimento Labial",
+          image: beforeAfterLipsNew,
           result: "Lábios mais volumosos e definidos"
         }
       ]
